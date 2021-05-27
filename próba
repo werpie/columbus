@@ -1,7 +1,9 @@
-print("czesc")
-print("dzień dobry")
-print("eluwina")
-print('halko halko')
+print("Kwiat Paproci")
+print("Od wieków wszystkim wiadomo, że w jedyną taką noc w roku, kiedy to Księżyc, Ziemia, Jowisz i Saturn w koniunkcji staną, kwitnie paproć, a kto jej kwiatuszek znajdzie, urwie i schowa, ten wielkie na ziemi szczęście mieć będzie.
+Noc jednak ta jest bardzo krótka, a kwiat ten niezwykle ciężko znaleźć. Jest bardzo niepozorny, a droga do niego pełna jest zagadek i niebezpieczeństw.")
+
+
+
 
 import pygame
 
