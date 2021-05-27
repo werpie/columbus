@@ -2,3 +2,41 @@ print("czesc")
 print("dzień dobry")
 print("eluwina")
 print('halko halko')
+
+import pygame
+
+# --- constants --- (UPPER_CASE_NAMES)
+
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+# --- main --- (lower_case_names)
+
+pygame.init()
+screen = pygame.display.set_mode( (SCREEN_WIDTH, SCREEN_HEIGHT) )
+
+pygame.font.init()
+font = pygame.font.SysFont('Times', 24)
+text = font.render('tekst jako łańcuch znaków', True, [128, 64, 255])
+
+image = pygame.image.load('obrazek.jpg')
+
+screen.blit(image, (0, 0))
+screen.blit(text, (0,0))
+pygame.display.flip()
+
+# --- mainloop ---
+
+running = True
+while running:
+
+    # --- events ---
+
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT: # exit on clicking button [X]
+            running = False
+
+# --- end ---
+
+pygame.quit()
+#sys.quit()
