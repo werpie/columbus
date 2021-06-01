@@ -24,6 +24,7 @@ bg_x_pos = 0
 playerImg = pygame.image.load('gra/girl.png')
 playerX = 30
 playerY = 170
+playerX_change = 0
 
 while True:
 
@@ -31,20 +32,22 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+    
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT:
+            playerX_change = -2
+        if event.key == pygame.K_RIGHT:
+            playerX_change = 2
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_LEFT or event.key == pygame.K_RIGHT:
+            playerX_change = 0
 
     bg_x_pos -= 1
     moving_background()
     if bg_x_pos <= -580:
         bg_x_pos = 0
 
-    player()
-
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT] and x>0:
-        x -= vel
-    if keys[pygame.K_RIGHT] and x<500-width:
-        x += vel
-
+    player(playerX, playerY)
 
     pygame.display.update()
     clock.tick(50)
