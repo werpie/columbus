@@ -14,20 +14,20 @@ class Game(object):
         self.screen_hight = 256
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_hight))
         self.wall_list = []
-        self.pozycja = Vector2(0, 0)
+        self.pozycja = Vector2(0, 0)                           
         self.map =  """                             
      wwwwwwwwwwwwwwwwwwwwwwww
               ww            w
 w                           w
 w    wwwwwwwwwwwwwww      www
 www                       w w
-w      w            w       w
-w   wwwww     wwwwwww      ww
+w      w       w    w   w   w
+w    wwww     wwwwwww   w  ww
 w      wwwwww     w     w   w
-w    w      w   Qwww  wwww  w
-w      w          w     w   w
-w   wwwwww www wwww     w   w
-w     w              ww w   w
+w    w          Qwww wwwww  w
+w      w  w       w     w   w
+w   wwwww wwww wwww     w   w
+w           w        ww w   w
 w                           w
 wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
 
