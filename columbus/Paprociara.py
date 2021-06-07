@@ -16,34 +16,31 @@ class paprociara():
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_s]:
             self.pozycja += Vector2(0, 1)
-        elif pressed[pygame.K_w]:
+        if pressed[pygame.K_w]:
             self.pozycja += Vector2(0, -1)
-        elif pressed[pygame.K_a]:
+        if pressed[pygame.K_a]:
             self.pozycja += Vector2(-1, 0)
-        elif pressed[pygame.K_d]:
+        if pressed[pygame.K_d]:
             self.pozycja += Vector2(1, 0)
 
         # collisions
         if self.rect.right >= self.game.screen_width:
-            if pressed[pygame.K_d]:
-                self.pozycja -= Vector2(1, 0)
+            self.pozycja -= Vector2(1, 0)
 
-        elif self.rect.left <= 0:
-            if pressed[pygame.K_a]:
-                self.pozycja -= Vector2(-1, 0)
+        if self.rect.left <= 0:
+            self.pozycja -= Vector2(-1, 0)
 
-        elif self.rect.top <= 0:
-            if pressed[pygame.K_w]:
-                self.pozycja -= Vector2(0, -1)
+        if self.rect.top <= 0:
+            self.pozycja -= Vector2(0, -1)
 
-        elif self.rect.bottom >= self.game.screen_hight:
-            if pressed[pygame.K_s]:
-                self.pozycja -= Vector2(0, 1)
+        if self.rect.bottom >= self.game.screen_hight:
+            self.pozycja -= Vector2(0, 1)
 
         if pygame.Rect.colliderect(self.rect, self.game.end):
             sys.exit()
 
         i = pygame.Rect.collidelist(self.rect, self.game.wall_list)
+
         if i != -1:
             self.life -= 1
             self.pozycja = Vector2(0, 0)

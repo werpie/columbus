@@ -7,14 +7,14 @@ from pygame.math import Vector2
 class Game(object):
     def __init__(self):
         # konfiguracja
-        self.tps_max = 100.0
+        self.speed = 60
         # inicjalizacja
         pygame.init()
         self.screen_width = 462
         self.screen_hight = 256
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_hight))
         self.wall_list = []
-        self.pozycja = Vector2(0, 0)                           
+        self.pozycja = Vector2(0, 0)
         self.map =  """                             
      wwwwwwwwwwwwwwwwwwwwwwww
               ww            w
@@ -32,8 +32,8 @@ w                           w
 wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
 
         self.tps_clock = pygame.time.Clock()
-        self.tps_delta = 0.0
         self.player = paprociara(self)
+        self.end = pygame.Rect(-50,-50,-50,-50)
 
         while True:
             # events
@@ -44,13 +44,9 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
                     sys.exit(0)
 
 
-
             # ticking
-            self.tps_delta += self.tps_clock.tick() / 1000.0  # czas wykonania klatki
-            while self.tps_delta > 1 / self.tps_max:
-                self.tick()
-                self.tps_delta -= 1 / self.tps_max
-
+            self.tps_clock.tick(self.speed)
+            self.tick()
             #renderowanie
             self.screen.fill((0, 0, 0))
             for y, line in enumerate(self.map):
@@ -72,8 +68,6 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
         self.player.draw()
 
 
-if __name__ == '__main__':
-    Game()
 
 
 
