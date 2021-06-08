@@ -17,17 +17,17 @@ class Game(object):
         self.pozycja = Vector2(0, 0)
         self.map =  """                             
      wwwwwwwwwwwwwwwwwwwwwwww
-                            w
-wwwwwwwwwwwwwwwwwwwwwwwwwww w
-w                         w w
-w wwwwwwwwwwwwwwwwwwwwwww w w  
-w w                     w w w
-w w wwwwwwwwwwwwwwwwwww w w w
-w w w                 w w w w
-w w wQ       wwww       w w w
-w w wwwwwwwwwwwwwwwwwwwww w w
-w w                       w w
-w wwwwwwwwwwwwwwwwwwwwwwwww w
+              ww            w
+w                           w
+w    wwwwwwwwwwwwwww      www
+www                       w w
+w      w       w    w   w   w
+w    wwww     wwwwwww   w  ww
+w      wwwwww     w     w   w
+w    w          Qwww wwwww  w
+w      w  w       w     w   w
+w   wwwww wwww wwww     w   w
+w           w        ww w   w
 w                           w
 wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
 
@@ -45,7 +45,7 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
 
 
             # ticking
-            self.tps_clock.tick(self.speed)
+            #self.tps_clock.tick(self.speed)
             self.tick()
             #renderowanie
             self.screen.fill((0, 0, 0))

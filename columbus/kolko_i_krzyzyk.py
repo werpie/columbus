@@ -1,7 +1,17 @@
 import pygame
 import random
 import numpy as np
+SCREEN_SIZE = (600,600)
+BLACK = (0,0,0)
+WHITE = (255,255,255)
+BLUE = (0,0,200)
+RED = (200,0,0)
 
+def init_display():
+    global screen,background
+    screen = pygame.display.set_mode((SCREEN_SIZE))
+    background = pygame.Surface(screen.get_size())
+    background.fill(BLACK)
 
 class tic_tac_toe():
 
@@ -9,57 +19,51 @@ class tic_tac_toe():
         self.board = np.zeros((3, 3))
         self.possible_moves = ["q","w","e","a","s","d","z","x","c"]
 
-    def filling_board(self,place):
-        if place == "q":
-            if self.board[0, 0] == 0:
-                self.board[0, 0] = 1
+    def win_checker(self):
+        skos1 = self.board[0, 0] + self.board[1, 1] + self.board[2, 2]
+        skos2 = self.board[2, 0] + self.board[1, 1] + self.board[0, 2]
+        for row in range(3):
+                if abs(np.sum(self.board[row,:])) == 3 or abs(np.sum(self.board[:,row])) == 3 \
+                        or abs(skos1) == 3 or abs(skos2) == 3:
+                    return True
+        return False
+
+    def filling_board(self,place,who):
+        if place in self.possible_moves:
+            if place == "q":
+                self.board[0, 0] = who
                 self.possible_moves.remove("q")
                 return True
-        elif place == "w":
-            if self.board[0, 1] == 0:
-                self.board[0, 1] = 1
+            if place == "w":
+                self.board[0, 1] = who
                 self.possible_moves.remove("w")
                 return True
-
-        elif place == "e":
-            if self.board[0, 2] == 0:
-                self.board[0, 2] = 1
+            if place == "e":
+                self.board[0, 2] = who
                 self.possible_moves.remove("e")
                 return True
-
-        elif place == "a":
-            if self.board[1, 0] == 0:
-                self.board[1, 0] = 1
+            if place == "a":
+                self.board[1, 0] = who
                 self.possible_moves.remove("a")
                 return True
-
-        elif place == "s":
-            if self.board[1, 1] == 0:
-                self.board[1, 1] = 1
+            if place == "s":
+                self.board[1, 1] = who
                 self.possible_moves.remove("s")
                 return True
-
-        elif place == "d":
-            if self.board[1, 2] == 0:
-                self.board[1, 2] = 1
+            if place == "d":
+                self.board[1, 2] = who
                 self.possible_moves.remove("d")
                 return True
-
-        elif place == "z":
-            if self.board[2, 0] == 0:
-                self.board[2, 0] = 1
+            if place == "z":
+                self.board[2, 0] = who
                 self.possible_moves.remove("z")
                 return True
-
-        elif place == "x":
-            if self.board[2, 1] == 0:
-                self.board[2, 1] = 1
+            if place == "x":
+                self.board[2, 1] = who
                 self.possible_moves.remove("x")
                 return True
-
-        elif place == "c":
-            if self.board[2, 2] == 0:
-                self.board[2, 2] = 1
+            if place == "c":
+                self.board[2, 2] = who
                 self.possible_moves.remove("c")
                 return True
         else:
@@ -67,26 +71,167 @@ class tic_tac_toe():
 
     def computer_move(self):
         move = random.choice(self.possible_moves)
-        self.filling_board(move)
-        print(move)
+        drawing_circle(move)
+        self.filling_board(move,1)
 
-    def player_move(self):
-        while True:
-            place = input("q,w,e\na,s,d\nz,x,c")
-            if self.filling_board(place) == True:
-                return
 
+    def player_move(self,place):
+        return self.filling_board(place,-1)
 
     def show_board(self):
         print(self.board)
 
 
-def do():
+
+def drawing_x(letter):
+    moves1 = ["q", "w", "e"], ["a", "s", "d"], ["z", "x", "c"]
+    s = 30
+    for row,line in enumerate(moves1):
+        for column,element in enumerate(line):
+            if element == letter:
+                y = 200*row+s
+                x = 200*column+s
+                ye = 200*(row+1)-s
+                xe = 200*(column+1)-s
+                position1 = (x,y)
+                position2 = (xe,y)
+                position3 = (xe,ye)
+                position4 = (x,ye)
+    pygame.draw.line(screen,BLUE,position1,position3,10)
+    pygame.draw.line(screen,BLUE,position2,position4,10)
+
+def drawing_circle(letter):
+    moves1 = ["q", "w", "e"],["a", "s", "d"],["z", "x", "c"]
+    s = 100
+    rad = 70
+    for row,line in enumerate(moves1):
+        for column,element in enumerate(line):
+            if element == letter:
+                x = 200*row+s
+                y = 200*column+s
+                pygame.draw.circle(screen,RED,(y,x),rad,10)
+
+
+def tic_tac_toeing():
+    global screen,background,licznik
+    init_display()
     x = tic_tac_toe()
+    licznik = 0
+    zegar = pygame.time.Clock()
+    screen.blit(background, (0, 0))
+    pygame.draw.line(screen, WHITE, (200, 0), (200, 600), 10)
+    pygame.draw.line(screen, WHITE, (400, 0), (400, 600), 10)
+    pygame.draw.line(screen, WHITE, (0, 200), (600, 200), 10)
+    pygame.draw.line(screen, WHITE, (0, 400), (600, 400), 10)
     while True:
-        x.show_board()
-        x.player_move()
-        x.computer_move()
-        print(x.possible_moves)
-        if input() == 1:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+            if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_q:
+                    if x.player_move("q"):
+                        drawing_x("q")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        pygame.time.wait(400)
+                        x.computer_move()
+                elif event.key == pygame.K_w:
+                    if x.player_move("w"):
+                        drawing_x("w")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_e:
+                    if x.player_move("e"):
+                        drawing_x("e")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_a:
+                    if x.player_move("a"):
+                        drawing_x("a")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_s:
+                    if x.player_move("s"):
+                        drawing_x("s")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_d:
+                    if x.player_move("d"):
+                        drawing_x("d")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_z:
+                    if x.player_move("z"):
+                        drawing_x("z")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_x:
+                    if x.player_move("x"):
+                        drawing_x("x")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                elif event.key == pygame.K_c:
+                    if x.player_move("c"):
+                        drawing_x("c")
+                        licznik += 1
+                        if x.win_checker():
+                            print("player won")
+                            return
+                        if licznik == 5:
+                            print("remis")
+                            return
+                        x.computer_move()
+                if event.key == pygame.K_r:
+                    x.show_board()
+        if x.win_checker():
+            print("computer won")
             return
+
+        pygame.display.update()
