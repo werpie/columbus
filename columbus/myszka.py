@@ -156,9 +156,9 @@ def czwarty_wybor():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
                 if (450 < y < 470) and (20 < x < 40):
-                    print('hello')
+                    print('dead')
                 elif (400 < y < 420) and (20 < x < 40):
-                    print('hi')
+                    print('the end')
 
 pierwszy_wybor()
 
