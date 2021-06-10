@@ -1,3 +1,5 @@
+#troche nie dziala :(
+
 wybor1 = True
 wybor2 = True
 wybor3 = True
@@ -24,7 +26,7 @@ while wybor3:
         else:
             print("Sfinks: “Niestety to nie jest prawidłowa odpowiedź”. Widzisz jak sfinks powstaje na swoich ogromnych łapach i uderza w Ciebie jedną z nich.")
             print("dead")
-
+            #tu powinna bohaterka umierac czy cos
     odp3 = input()
     if odp3 == "zyc" or odp3 == "ZYC" or odp3 == "Zyc":
         print("Sprawdź na mapie, jak dolecieć na drugą planetę, na której musisz znaleźć wskazówkę i udaj się tam.")
