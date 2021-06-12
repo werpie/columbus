@@ -1,4 +1,4 @@
-#troche nie dziala :(
+
 
 wybor1 = True
 wybor2 = True
@@ -6,7 +6,7 @@ wybor3 = True
 
 print("Witaj na Planecie 1! Planetę, na której się znajdujesz pokrywają gęste chmury burzowe. Zdecyduj się, w którą stronę chcesz polecieć, w poszukiwaniu wskazówki.")
 while wybor3:
-    while wybor3:
+    while wybor2:
         while wybor1:
             odp1 = input()
             if odp1 == "w lewo":
