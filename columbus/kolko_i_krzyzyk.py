@@ -1,19 +1,23 @@
-import pygame
-import random
-import numpy as np
-SCREEN_SIZE = (600,600)
+import pygame, numpy as np,random
 BLACK = (0,0,0)
 WHITE = (255,255,255)
 BLUE = (0,0,200)
 RED = (200,0,0)
+SCREEN_SIZE = (600,600)
 
-def init_display():
+def init_display(): #Making display and bacground for game
     global screen,background
     screen = pygame.display.set_mode((SCREEN_SIZE))
     background = pygame.Surface(screen.get_size())
     background.fill(BLACK)
+    font = pygame.font.SysFont("Times",20)
+    moves1 = ["q", "w", "e"], ["a", "s", "d"], ["z", "x", "c"]
+    for row, line in enumerate(moves1):
+        for column, element in enumerate(line):
+            text1 = font.render(element, True, WHITE)
+            screen.blit(text1,(column*200+20,row*200+10))
 
-class tic_tac_toe():
+class tic_tac_toe(): #Main game rules, restricting moves for player and making moves for pc
 
     def __init__(self):
         self.board = np.zeros((3, 3))
@@ -117,8 +121,6 @@ def tic_tac_toeing():
     init_display()
     x = tic_tac_toe()
     licznik = 0
-    zegar = pygame.time.Clock()
-    screen.blit(background, (0, 0))
     pygame.draw.line(screen, WHITE, (200, 0), (200, 600), 10)
     pygame.draw.line(screen, WHITE, (400, 0), (400, 600), 10)
     pygame.draw.line(screen, WHITE, (0, 200), (600, 200), 10)
@@ -131,6 +133,8 @@ def tic_tac_toeing():
                 if event.key == pygame.K_q:
                     if x.player_move("q"):
                         drawing_x("q")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -138,11 +142,12 @@ def tic_tac_toeing():
                         if licznik == 5:
                             print("remis")
                             return
-                        pygame.time.wait(400)
                         x.computer_move()
                 elif event.key == pygame.K_w:
                     if x.player_move("w"):
                         drawing_x("w")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -154,6 +159,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_e:
                     if x.player_move("e"):
                         drawing_x("e")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -165,6 +172,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_a:
                     if x.player_move("a"):
                         drawing_x("a")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -176,6 +185,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_s:
                     if x.player_move("s"):
                         drawing_x("s")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -187,6 +198,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_d:
                     if x.player_move("d"):
                         drawing_x("d")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -198,6 +211,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_z:
                     if x.player_move("z"):
                         drawing_x("z")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -209,6 +224,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_x:
                     if x.player_move("x"):
                         drawing_x("x")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")
@@ -220,6 +237,8 @@ def tic_tac_toeing():
                 elif event.key == pygame.K_c:
                     if x.player_move("c"):
                         drawing_x("c")
+                        pygame.display.update()
+                        pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
                             print("player won")

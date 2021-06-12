@@ -6,10 +6,11 @@ SCREEN_WIDTH = 800
 SCREEN_SIZE = (800,800)
 
 def init_display():
-    global screen,background
+    global screen,background,font
     screen = pygame.display.set_mode((SCREEN_SIZE))
     background = pygame.Surface(screen.get_size())
     background = pygame.image.load("photos/tlo.jpg")
+    font = pygame.font.SysFont("Times",20)
 
 class crosshair():
 
@@ -73,10 +74,14 @@ class planets():
     def image(self):
         return self.image
 
+    def shout_name(self):
+        return self.code
+
 
 def planet_choosing():
     loop = 1
     init_display()
+
     aim = crosshair()
     planet1 = planets((SCREEN_WIDTH*0.1,SCREEN_HEIGHT*0.2),"wenus")
     planet2 = planets((SCREEN_WIDTH*0.3,SCREEN_HEIGHT*0.4),"mars")
@@ -84,7 +89,6 @@ def planet_choosing():
     planet1_image = pygame.image.load("photos/planet1.png")
     planet2_image = pygame.image.load("photos/planet2.png")
     planet3_image = pygame.image.load("photos/planet3.png")
-    clocki = pygame.time.Clock()
     choosen = False
     while loop:
         for event in pygame.event.get() :
@@ -107,7 +111,13 @@ def planet_choosing():
         if planet1.proximity(aim.position_on_map()):
             aim.green()
             if choosen:
-                print("lecimy na planetę 1")
+                background.fill(BLACK)
+                screen.blit(background, (0, 0))
+                text = font.render("".join(["lecimy na ",planet1.shout_name()]),True,(255,255,255))
+                sizinig = text.get_size()
+                screen.blit(text,((SCREEN_WIDTH - sizinig[0])/2,(SCREEN_HEIGHT - sizinig[1])/2))
+                pygame.display.update()
+                pygame.time.wait(2000)
                 return 1
         elif planet2.proximity(aim.position_on_map()):
             aim.green()
