@@ -5,6 +5,10 @@ BLUE = (0,0,200)
 RED = (200,0,0)
 SCREEN_SIZE = (600,600)
 
+"""
+Zwraca "player","computer","remis", zależnie, kto wygrał
+"""
+
 def init_display(): #Making display and bacground for game
     global screen,background
     screen = pygame.display.set_mode((SCREEN_SIZE))
@@ -137,11 +141,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_w:
                     if x.player_move("w"):
@@ -150,11 +152,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_e:
                     if x.player_move("e"):
@@ -163,11 +163,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_a:
                     if x.player_move("a"):
@@ -176,11 +174,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_s:
                     if x.player_move("s"):
@@ -189,11 +185,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_d:
                     if x.player_move("d"):
@@ -202,11 +196,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_z:
                     if x.player_move("z"):
@@ -215,11 +207,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_x:
                     if x.player_move("x"):
@@ -228,11 +218,9 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 elif event.key == pygame.K_c:
                     if x.player_move("c"):
@@ -241,16 +229,13 @@ def tic_tac_toeing():
                         pygame.time.wait(300)
                         licznik += 1
                         if x.win_checker():
-                            print("player won")
-                            return
+                            return "player won"
                         if licznik == 5:
-                            print("remis")
-                            return
+                            return "remis"
                         x.computer_move()
                 if event.key == pygame.K_r:
                     x.show_board()
         if x.win_checker():
-            print("computer won")
-            return
+            return "computer"
 
         pygame.display.update()

@@ -5,6 +5,13 @@ SCREEN_HEIGHT = 800
 SCREEN_WIDTH = 800
 SCREEN_SIZE = (800,800)
 
+"""
+Wywołujemy funkcję za pomocą planet_choosing()
+Jeżeli nie podamy do środka niczego, to pokaże tylko 2 planety,
+Jeżeli podamy do niego True, to pokaże się trzecia planeta, którą będzie można wybrać
+Funkcja zwraca wartości 1 i 2 dla planet widoczych normalnie i 3 dla księżyca
+"""
+
 def init_display():
     global screen,background,font
     screen = pygame.display.set_mode((SCREEN_SIZE))
@@ -20,7 +27,7 @@ class crosshair():
 
     def move(self,dir):
 
-        distance = 5
+        distance = 7
         if dir == "N":
             self.position -= Vector2(0,distance)
         if dir == "E":
@@ -78,7 +85,8 @@ class planets():
         return self.code
 
 
-def planet_choosing():
+def planet_choosing(planet_3_keys = False):
+
     loop = 1
     init_display()
 
@@ -95,7 +103,6 @@ def planet_choosing():
             if event.type == pygame.QUIT:
                 loop = 0
 
-        #clocki.tick(30)
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_s]:
             aim.move("S")
@@ -111,44 +118,23 @@ def planet_choosing():
         if planet1.proximity(aim.position_on_map()):
             aim.green()
             if choosen:
-                background.fill(BLACK)
-                screen.blit(background, (0, 0))
-                text = font.render("".join(["lecimy na ",planet1.shout_name()]),True,(255,255,255))
-                sizinig = text.get_size()
-                screen.blit(text,((SCREEN_WIDTH - sizinig[0])/2,(SCREEN_HEIGHT - sizinig[1])/2))
-                pygame.display.update()
-                pygame.time.wait(2000)
                 return 1
         elif planet2.proximity(aim.position_on_map()):
             aim.green()
             if choosen:
-                print("lecimy na planetę 2")
                 return 2
+        elif planet3.proximity(aim.position_on_map()):
+            if planet_3_keys:
+                aim.green()
+                if choosen:
+                    return 3
         else:
-            """
-            if paprociara ma oba elementy układanki
-                if planet3.proximity(aim.position_on_map()):
-                    aim.green()
-            if choosen:
-                print("lecimy na planetę 3")
-                return
-            else:
-            """
             aim.white()
             choosen = False
 
-
-        if planet3.proximity(aim.position_on_map()):
-            aim.green()
-            if choosen:
-                print("lecimy na planetę 3")
-                return
-
         screen.blit(background,(0, 0))
-        """
-        if paprociara ma oba elementy układanki:
+        if planet_3_keys:
             screen.blit(planet3_image,planet3.position())
-        """
         screen.blit(planet1_image,planet1.position())
         screen.blit(planet2_image,planet2.position())
         screen.blit(aim_image,aim.position_raw())
