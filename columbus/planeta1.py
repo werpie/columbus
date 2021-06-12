@@ -33,5 +33,5 @@ while wybor3:
         wybor3 = False
     else:
         print("probuj dalej")
-print("Sprawdź na mapie, jak dolecieć na drugą planetę, na której musisz znaleźć wskazówkę i udaj się tam.")
+
     
