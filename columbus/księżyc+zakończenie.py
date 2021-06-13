@@ -4,7 +4,7 @@ import pygame
 from kolko_i_krzyzyk import tic_tac_toeing
 
 def tygrys():
-    tygrys = pygame.image.load('tygrys.jpeg')
+    tygrys = pygame.image.load('photos/tygrys.jpeg')
     global screen
     screen = pygame.display.set_mode((600, 400))
     screen.blit(tygrys,(0,0))
