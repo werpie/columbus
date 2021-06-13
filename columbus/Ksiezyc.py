@@ -1,5 +1,5 @@
 import pygame
-from kolko_i_krzyzyk import tic_tac_toe
+from kolko_i_krzyzyk import tic_tac_toeing
 from zakończenie import *
 from functions import *
 
