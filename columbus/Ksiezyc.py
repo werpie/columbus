@@ -30,7 +30,7 @@ Jednakże strzeże go kosmiczny Tygrys.'''])
         priniting(['''Aby go stamtąd przegonić, musisz
 wygrać z nim w kółko i krzyżyk.'''])
         pygame.display.quit()
-        tic_tac_toe()
+        tic_tac_toeing()
         printing(['''
             Widzisz przed sobą kwiat paproci. Może on zagwarantować
 Ci wieczne szczęście, spełnić Twoje wszelkie marzenia 
