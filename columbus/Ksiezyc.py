@@ -34,7 +34,7 @@ wygrać z nim w kółko i krzyżyk.'''])
         pygame.display.quit()
         temp = tic_tac_toeing()
         if temp == "computer":
-            cut_scene("Przegrałeś i umierasz. :))))")
+            cut_scene("Przegrałaś i umierasz. :))))")
             pygame.quit()
             quit()
         printing(['''
@@ -50,7 +50,7 @@ wygrać z nim w kółko i krzyżyk.'''])
         wybor_konca = int(input("Wybierz 1: Odejdź bez paprotki\nWybierz 2: Zerwij paproć"))
         if wybor_konca == 1:
             printing(['''
-    Zdecydowałeś/zdecydowałaś się odejść bez kwiatu paproci. 
+    Zdecydowałaś się odejść bez kwiatu paproci. 
     Czy była to dobra decyzja? Trudno powiedzieć. 
     Pamiętaj, że zawsze możesz spróbować go zdobyć 
     przy następnej koniunkcji planet.'''])
