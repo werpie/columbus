@@ -130,3 +130,5 @@ i przy starcie Twój statek kosmiczny stanął w płomieniach.
 Następnym razem wybieraj mądrze.'''])
                 time.sleep(5)
                 os.system("cls")
+
+zero()
