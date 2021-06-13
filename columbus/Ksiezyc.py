@@ -7,6 +7,12 @@ printing(lista)
 throwing_at_window(text,colour)
 cut_scene(tekst)
 
+def tygrys():
+    tygrys = pygame.image.load('photos/tygrys.jpg')
+    screen.blit(tygrys,(0,0))
+    pygame.display.update()
+    pygame.time.wait(3000)
+
 def init_display():
     global screen,background
     screen = pygame.display.set_mode((1000,1000))
@@ -23,8 +29,9 @@ Udaj się tam.'''])
 To tutaj odnajdziesz mistyczny kwiat paproci,
 który ma Ci zapewnić wieczne szczęście.'''])
         printing(['''Widzisz przed sobą miejsce, w którym znajduje się kwiat paproci.
-Jednakże strzeże go kosmiczny Tygrys.
-Aby go stamtąd przegonić, musisz
+Jednakże strzeże go kosmiczny Tygrys.'''])
+        tygrys()
+        priniting(['''Aby go stamtąd przegonić, musisz
 wygrać z nim w kółko i krzyżyk.'''])
         pygame.display.quit()
         tic_tac_toe()
