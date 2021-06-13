@@ -88,19 +88,21 @@ class planets():
 def planet_choosing(planet_3_keys = False):
     loop = 1
     init_display()
-    print("1")
     aim = crosshair()
     planet1 = planets((SCREEN_WIDTH*0.1,SCREEN_HEIGHT*0.2),"wenus")
     planet2 = planets((SCREEN_WIDTH*0.3,SCREEN_HEIGHT*0.4),"mars")
     planet3 = planets((SCREEN_WIDTH*0.7,SCREEN_HEIGHT*0.5),"jowisz")
+    planet4 = planets((SCREEN_WIDTH*0.65,SCREEN_HEIGHT*0.3),"saturn")
     planet1_image = pygame.image.load("photos/planet1.png")
     planet2_image = pygame.image.load("photos/planet2.png")
     planet3_image = pygame.image.load("photos/planet3.png")
+    planet4_image = pygame.image.load("photos/planet411.png")
     choosen = False
     while loop:
         for event in pygame.event.get() :
             if event.type == pygame.QUIT:
                 loop = 0
+                quit()
 
         pressed = pygame.key.get_pressed()
         if pressed[pygame.K_s]:
@@ -122,6 +124,10 @@ def planet_choosing(planet_3_keys = False):
             aim.green()
             if choosen:
                 return 2
+        elif planet4.proximity(aim.position_on_map()):
+            aim.green()
+            if choosen:
+                return 4
         elif planet3.proximity(aim.position_on_map()):
             if planet_3_keys:
                 aim.green()
@@ -134,6 +140,7 @@ def planet_choosing(planet_3_keys = False):
         screen.blit(background,(0, 0))
         if planet_3_keys:
             screen.blit(planet3_image,planet3.position())
+        screen.blit(planet4_image,planet4.position())
         screen.blit(planet1_image,planet1.position())
         screen.blit(planet2_image,planet2.position())
         screen.blit(aim_image,aim.position_raw())

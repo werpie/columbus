@@ -1,9 +1,13 @@
 import pygame
-import sys
+from functions import *
 screen = pygame.display.set_mode((1000, 500))
 pygame.font.init()
 
 def pierwszy_wybor():
+    background = pygame.Surface(screen.get_size())
+    background.fill((0,0,0))
+    screen.blit(background,(0,0))
+    pygame.display.update()
     x = '''    Witaj na Saturnie. W oddali dostrzegasz coś na kształt lasu, który składa się z wielu kosmicznych roślin.
     Kilka z nich rozpoznajesz jako skrajnie niebezpieczne. Po zbliżeniu się, rozumiesz że, 
     to co widzisz przed sobą to labirynt
@@ -43,11 +47,12 @@ def pierwszy_wybor():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
                 if (450 < y < 470) and (20 < x < 40):
-                    print('umarles')
+                    cut_scene("Umarłeś :)))")
+                    quit()
                 elif (400 < y < 420) and (20 < x < 40):
                     screen.fill((0,0,0))
                     drugi_wybor()
-
+                    return
 def drugi_wybor():
     x = '''    Idziesz przed siebie, gdy nagle słyszysz za sobą kroki.
     Brzmią one jakby ktoś zbliżał się do Ciebie bardzo szybko.'''.splitlines()
@@ -80,11 +85,12 @@ def drugi_wybor():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
                 if (450 < y < 470) and (20 < x < 40):
-                    print('dead')
+                    cut_scene("Umarłeś :)))")
+                    quit()
                 elif (400 < y < 420) and (20 < x < 40):
                     screen.fill((0, 0, 0))
                     trzeci_wybor()
-
+                    return
 
 
 def trzeci_wybor():
@@ -119,11 +125,12 @@ def trzeci_wybor():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
                 if (450 < y < 470) and (20 < x < 40):
-                    print('dead')
+                    cut_scene("Umarłeś :)))")
+                    quit()
                 elif (400 < y < 420) and (20 < x < 40):
                     screen.fill((0, 0, 0))
                     czwarty_wybor()
-
+                    return
 
 def czwarty_wybor():
     x = '''    Wędrujesz już po labiryncie kilka godzin, wreszcie widzisz przed sobą coś co wygląda na wyjście.
@@ -156,11 +163,10 @@ def czwarty_wybor():
             if event.type == pygame.MOUSEBUTTONDOWN:
                 x, y = pygame.mouse.get_pos()
                 if (450 < y < 470) and (20 < x < 40):
-                    print('dead')
+                    cut_scene("Umarłeś :)))")
+                    quit()
                 elif (400 < y < 420) and (20 < x < 40):
-                    print('the end')
-
-pierwszy_wybor()
+                    return
 
 
 

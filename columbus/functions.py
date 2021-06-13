@@ -79,15 +79,15 @@ def cut_scene(tekst):
     Pojawia się ekranik i znika po kilku sekundach
     """
 
-    screen_size = (600,400)
+    screen_size = (1000,400)
     screen = pygame.display.set_mode(screen_size)
     background = pygame.Surface(screen.get_size())
     background.fill((0,0,0))
     screen.blit(background,(0,0))
     font = pygame.font.SysFont("Times",40)
-    wt = 0
     loop = True
-    change = 8
+    wt = 0
+    change = 12
     while loop:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -96,7 +96,7 @@ def cut_scene(tekst):
         text = font.render(tekst,True,(wt,wt,wt))
         text_size = text.get_size()
         screen.blit(background, (0, 0))
-        screen.blit(text,((600 - text_size[0])/2,(400 - text_size[1])/2))
+        screen.blit(text,((screen_size[0]- text_size[0])/2,(screen_size[1] - text_size[1])/2))
         pygame.display.update()
         pygame.time.wait(100)
         wt += change

@@ -37,7 +37,7 @@ class paprociara():
             self.pozycja -= Vector2(0, 1)
 
         if pygame.Rect.colliderect(self.rect, self.game.end):
-            sys.exit()
+            return True
 
         i = pygame.Rect.collidelist(self.rect, self.game.wall_list)
 
@@ -47,6 +47,8 @@ class paprociara():
 
         if self.life == 0:
             sys.exit()
+
+        return False
 
 
 

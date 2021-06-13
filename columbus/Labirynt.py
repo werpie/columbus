@@ -18,11 +18,11 @@ class Game(object):
         self.map =  """                             
      wwwwwwwwwwwwwwwwwwwwwwww
                             w
-wwwwwwwwwwwwwwwwwwwwwwwwwww w
+wwwwwwwwwwww wwwwwwwwwwwwww w
 w                         w w
-w wwwwwwwwwwwwwwwwwwwwwww w w  
+w wwwwwwwwww wwwwwwwwwwww w w  
 w w                     w w w
-w w wwwwwwwwwwwwwwwwwww w w w
+w w wwwwwwww wwwwwwwwww w w w
 w w w                 w w w w
 w w wQ       wwww       w w w
 w w wwwwwwwwwwwwwwwwwwwww w w
@@ -34,19 +34,19 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
         self.tps_clock = pygame.time.Clock()
         self.player = paprociara(self)
         self.end = pygame.Rect(-50,-50,-50,-50)
-
-        while True:
+        self.loop = True
+        while self.loop:
             # events
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit(0)
-                elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                    sys.exit(0)
+                    quit()
 
 
             # ticking
             self.tps_clock.tick(self.speed)
-            self.tick()
+            if not self.tick():
+                self.loop = False
+
             #renderowanie
             self.screen.fill((0, 0, 0))
             for y, line in enumerate(self.map):
@@ -62,7 +62,10 @@ wwwwwwwwwwwwwwwwwwwwwwwwwwwww""".splitlines()[1:]
             pygame.display.flip()
 
     def tick(self):
-        self.player.tick()
+        if self.player.tick():
+            return False
+        else:
+            return True
 
     def draw(self):
         self.player.draw()
