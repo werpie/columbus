@@ -62,11 +62,11 @@ Czy chcesz poprosić o pomoc mechanika?'''])
                 wybór_4 = int(input())
                 if wybór_4 == 1:
                     printing(['''Mechanik sprawdził i naprawił twój statek.
-Wyniosło Cię to dużo monet, ale dzięki temu jesteś pewien/pewna,
+Wyniosło Cię to dużo monet, ale dzięki temu jesteś pewna,
 że dolecimy do każdej planety bezpiecznie.'''])
                 else:
-                    printing(['''Jakimś cudem samemu udało Ci się naprawić usterkę.
-Dzięki temu zaoszczędziłeś/zaoszczędziłaś trochę monet,
+                    printing(['''Jakimś cudem samej udało Ci się naprawić usterkę.
+Dzięki temu zaoszczędziłaś trochę monet,
 ale nie wiadomo, czy usterka jest naprawiona poprawnie.
 Miejmy nadzieję, że dolecisz na miejsce.'''])
                 printing(['''No to w drogę!'''])
@@ -75,7 +75,7 @@ Miejmy nadzieję, że dolecisz na miejsce.'''])
                 printing(['''No to w drogę!'''])
                 time.sleep(2)
                 os.system("cls")
-                printing(['''Umarłeś_aś''',
+                printing(['''Umarłaś''',
 '''Niestety uszkodzenia statku były zbyt poważne
 i przy starcie Twój statek kosmiczny stanął w płomieniach.
 Następnym razem wybieraj mądrze.'''])
@@ -94,8 +94,8 @@ Czy chcesz poprosić o pomoc mechanika?'''])
 Wyniosło Cię to dużo monet, ale dzięki temu jesteś pewien/pewna,
 że dolecimy do każdej planety bezpiecznie.'''])
             else:
-                printing(['''Jakimś cudem samemu udało Ci się naprawić usterkę.
-Dzięki temu zaoszczędziłeś/zaoszczędziłaś trochę monet,
+                printing(['''Jakimś cudem samej udało Ci się naprawić usterkę.
+Dzięki temu zaoszczędziłaś trochę monet,
 ale nie wiadomo, czy usterka jest naprawiona poprawnie.
 Miejmy nadzieję, że dolecisz na miejsce.''',
 '''Jednak nadal coś wydaje się być nie tak z zbiornikiem paliwa,
@@ -124,7 +124,7 @@ No cóż, masz teraz mniej monet, ale przynajmniej nowy zbiornik.'''])
                 printing(['''No to w drogę!'''])
                 time.sleep(2)
                 os.system("cls")
-                printing(['''Umarłeś_aś''',
+                printing(['''Umarłaś''',
 '''Niestety uszkodzenia statku były zbyt poważne
 i przy starcie Twój statek kosmiczny stanął w płomieniach.
 Następnym razem wybieraj mądrze.'''])
