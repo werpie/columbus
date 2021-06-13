@@ -70,7 +70,7 @@ def drugi_wybor():
     wybor2 = pygame.Rect(20, 450, 20, 20)
     pygame.draw.rect(screen, (0, 150, 255), wybor1, 3)
     pygame.draw.rect(screen, (0, 150, 255), wybor2, 3)
-    text1 = font.render('Oglądasz się za siebie, boisz się, że możesz zostać zaatakowany/a od tyłu.',
+    text1 = font.render('Oglądasz się za siebie, boisz się, że możesz zostać zaatakowana od tyłu.',
                         True, [255, 255, 255])
     screen.blit(text1, (50, 400))
     text2 = font.render('Postanawiasz nie oglądać się za siebie i uparcie iść do przodu.', True, [255, 255, 255])
