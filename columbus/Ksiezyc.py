@@ -1,11 +1,8 @@
 import pygame
 from kolko_i_krzyzyk import tic_tac_toe
-import zakończenie
+from zakończenie import *
 from functions import *
 
-printing(lista)
-throwing_at_window(text,colour)
-cut_scene(tekst)
 
 def init_display():
     global screen,background
