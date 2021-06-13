@@ -86,10 +86,9 @@ class planets():
 
 
 def planet_choosing(planet_3_keys = False):
-
     loop = 1
     init_display()
-
+    print("1")
     aim = crosshair()
     planet1 = planets((SCREEN_WIDTH*0.1,SCREEN_HEIGHT*0.2),"wenus")
     planet2 = planets((SCREEN_WIDTH*0.3,SCREEN_HEIGHT*0.4),"mars")

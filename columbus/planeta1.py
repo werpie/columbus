@@ -74,5 +74,3 @@ na której musisz znaleźć kolejną wskazówkę i udaj się tam.'''])
                 pygame.display.quit()
             else:
                 print("Próbuj dalej")
-
-Jowisz()

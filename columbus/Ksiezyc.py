@@ -51,5 +51,3 @@ przy następnej koniunkcji planet.'''])
         else:
             zakończenie()
 
-Ksiezyc()
-

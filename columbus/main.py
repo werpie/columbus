@@ -1,5 +1,5 @@
-import numpy as np
-from planet_choosing import *
+import pygame
+from planet_choosing import planet_choosing
 from klasy import *
 from planeta_zero import *
 from planeta1 import *
@@ -11,9 +11,10 @@ from Zakonczenie import *
 from Ksiezyc import *
 
 def main():
-    planeta_zero()
+    pygame.init()
+    pygame.font.init()
+    zero()
     loop = True
-    input()
     while loop:
         temp = planet_choosing()
         if temp == 1:

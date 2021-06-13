@@ -1,7 +1,4 @@
 #coś tu nie działa i nie wiem czemu
-
-import numpy as np
-import pygame
 from functions import *
 BLACK = (0,0,0)
 
@@ -44,5 +41,3 @@ nigdy nie brakuje jedzenia i usługuje Ci kilkadziesiąt służących.
 Zasiadasz do stołu i zaczynasz zajadać się podanymi potrawami.
 Wszystko wydaje się w porządku, ale czujesz się bardzo samotnie
 i tak jakbyś tak naprawdę nic nie miał/a.'''])
-
-Zakonczenie()

@@ -39,5 +39,3 @@ def chodzenie():
         clock.tick(50)
         if playerX+65==x:
             return
-
-chodzenie()
