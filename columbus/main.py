@@ -2,6 +2,7 @@ import numpy as np
 from planet_choosing import *
 from klasy import *
 from planeta_zero import *
+from planeta1 import *
 from kolko_i_krzyzyk import *
 from Labirynt import *
 from Paprociara import *
@@ -10,19 +11,18 @@ from Zakonczenie import *
 from Ksiezyc import *
 
 def main():
-    #planeta_zero()
+    planeta_zero()
     loop = True
-    Ksiezyc()
-    Zakonczenie()
     input()
     while loop:
         temp = planet_choosing()
         if temp == 1:
             chodzenie()
-            Game()
+            planeta1()
         if temp == 2:
             chodzenie()
-            tic_tac_toeing()
-
+            #wstep do labiryntu
+            Labirynt()
+    Ksiezyc()
 if __name__ == '__main__':
     main()
