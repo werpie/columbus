@@ -6,17 +6,18 @@ from functions import *
 
 def sfinks():
     sfinks = pygame.image.load('photos/sfinks.jpg')
+    global screen
+    screen = pygame.display.set_mode((600, 400))
     screen.blit(sfinks,(0,0))
     pygame.display.update()
     pygame.time.wait(3000)
 
-wybor1 = True
-wybor2 = True
-wybor3 = True
-
 #problem jest taki, że przy śmierci cofamy się do "coś miga w oddali", a nie do samego początku
 
 def Jowisz():
+    wybor1 = True
+    wybor2 = True
+    wybor3 = True
     printing(['''Witaj na Jowiszu!
 Planetę, na której się znajdujesz pokrywają gęste chmury burzowe.
 Zdecyduj się, w którą stronę chcesz polecieć, w poszukiwaniu wskazówki.'''])
