@@ -23,7 +23,7 @@ def main():
                 chodzenie(1)
                 Jowisz()
                 cut_scene("Znaleźliśmy pierwszą część koordynatów Planety")
-                cut_scene("Wsiadamy s powrotem do s tatku!")
+                cut_scene("Wsiadamy z powrotem do statku!")
                 temp1[0] = 1
             else:
                 cut_scene("Już byliśmy na tej planecie, wybierz inną :))")
@@ -33,7 +33,7 @@ def main():
                 #wstep do labiryntu
                 Game()
                 cut_scene("Znaleźliśmy drugą część koordynatów Planety")
-                cut_scene("Wsiadamy spowrotem do statku!")
+                cut_scene("Wsiadamy z powrotem do statku!")
                 temp1[1] = 1
             else:
                 cut_scene("Już byliśmy na tej planecie, wybierz inną :))")
@@ -41,7 +41,7 @@ def main():
             if temp1[2] == 0:
                 pierwszy_wybor()
                 cut_scene("Znaleźliśmy trzecią część koordynatów Planety")
-                cut_scene("Wsiadamy spowrotem do statku!")
+                cut_scene("Wsiadamy z powrotem do statku!")
                 temp1[2] = 1
             else:
                 cut_scene("Już byliśmy na tej planecie, wybierz inną :))")
