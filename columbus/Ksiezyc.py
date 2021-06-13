@@ -5,6 +5,8 @@ from functions import *
 
 def tygrys():
     tygrys = pygame.image.load('photos/tygrys.jpg')
+    global screen
+    screen = pygame.display.set_mode((600, 400))
     screen.blit(tygrys,(0,0))
     pygame.display.update()
     pygame.time.wait(3000)
