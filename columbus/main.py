@@ -10,7 +10,7 @@ from Zakonczenie import *
 from Ksiezyc import *
 
 def main():
-    #laneta_zero()
+    #planeta_zero()
     loop = True
     Ksiezyc()
     Zakonczenie()
