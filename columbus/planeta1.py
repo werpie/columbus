@@ -49,7 +49,7 @@ Im więcej zabierasz, tym większe to się staje.'''])
             if odp2 == "dziura" or odp2 == "Dziura" or odp2 == "DZIURA":
                 printing(['''Gratuluję, to prawidłowa odpowiedź,
 w nagrodę możesz wejść do środka i odebrać wskazówkę.'''])
-                printing(['''W środku sfinksa znalazłeś/znalazłaś zaszyfrowaną wiadomość,
+                printing(['''W środku sfinksa znalazłaś zaszyfrowaną wiadomość,
 z częścią koordynatów planety, na której znajduje się kwiat.
 Odszyfruj wiadomość: --.. / -.-- / -.-.  , i zapisz ją:'''])
                 wybor2 = False
@@ -61,7 +61,7 @@ Widzisz jak sfinks powstaje na swoich ogromnych łapach
 i uderza w Ciebie jedną z nich.'''])
                 time.sleep(2)
                 os.system("cls")
-                printing(['''Umarłeś_aś'''])
+                printing(['''Umarłaś'''])
                 quit()
 
         print("Zapisz odszyfrowaną wiadomość:")
