@@ -4,6 +4,9 @@ import os
 
 def sfinks():
     sfinks = pygame.image.load('gra/sfinks.jpg')
+    screen.blit(sfinks,(0,0))
+    pygame.display.update()
+    pygame.time.wait(3000)
 
 def throwing_at_window(text,colour):
     """
@@ -104,7 +107,7 @@ while True:
             printing(['''Gdy podlatujesz bliżej widzisz ogromnego sfinksa
 zbudowanego z brył z różnych materiałów i odpadów kosmicznych.
 Wskazówka znajduje się najprawdopodobniej wewnątrz sfinksa.'''])
-            #chciałabym żeby tu pojawiał się obrazek sfinksa, ale nie umiem :c
+            sfinks()
             printing(['''Witaj przybyszko, podejrzewam, że chciałabyś wejść do środka
 i zdobyć wskazówkę, która pomoże Ci w odnalezieniu kwiatu paproci.
 Aby to zrobić, musisz jednak rozwiązać zagadkę:
